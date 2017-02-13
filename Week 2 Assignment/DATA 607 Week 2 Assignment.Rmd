@@ -1,0 +1,19 @@
+---
+title: "DATA607 Week 2 Assignment"
+author: "Jenny"
+date: "February 12, 2017"
+output: html_document
+---
+
+## Week 2
+
+Choose six recent popular movies. Ask at least five people that you know (friends, family, classmates, imaginary friends) to rate each of these movie that they have seen on a scale of 1 to 5. Take the results (observations) and store them in a SQL database. Load the information into an R dataframe.
+
+```{r setup, include=TRUE}
+movie_reviews <- read.csv("https://raw.githubusercontent.com/Jennier2015/DATA-607/master/Week%202%20Assignment/movie_review.csv")
+movie_reviews <- as.data.frame(movie_reviews)
+movie_reviews <- as.data.frame(movie_reviews)
+is.data.frame(movie_reviews)
+head(movie_reviews)
+```
+

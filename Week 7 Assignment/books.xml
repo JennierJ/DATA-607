@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+
+  <book category="Psychology">
+    <title lang="en">The Road Less Traveled</title>
+    <author>Scott Peck and John Driscoll</author>
+    <year>1978</year>
+    <Goodreadrating>30.00</Goodreadrating>
+    <Publisher>Touchstone</Publisher>
+  </book>
+
+  <book category="Psychology">
+    <title lang="en">Mindset</title>
+    <author>Carol Dweck</author>
+    <year>2006</year>
+    <Goodreadrating>4.03</Goodreadrating>
+    <Publisher>Random House</Publisher>
+  </book>
+
+  <book category="Psychology">
+    <title lang="en">Switch</title>
+    <author>Dan Harris</author>
+    <year>2006</year>
+    <Goodreadrating>3.93</Goodreadrating>
+    <Publisher>It Books</Publisher>
+  </book>
+
+</bookstore>

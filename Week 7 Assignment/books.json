@@ -1,23 +1,12 @@
-{"Sociology Books": [
+[
     {
-    "Title": "The Road Less Traveled",
-    "Author": ["Scott Peck", "John Driscoll"],
-    "Year Published": 1978,
-    "Publisher": "Touchstone",
-    "Goodreadrating": 4.02,
+        "book1" :  [ { "Title" : "The Road Less Traveled", "Author" : "Scott Peck and John Driscoll", "Year" : 1978, "Goodreadrating" : 4.02, "Publisher" : "Touchstone" } ]
     },
     {
-    "Title": "Mindset",
-    "Author": "Carol Dweck",
-    "Year Published": 1967,
-    "Publisher": "Random House",
-    "Goodreadrating": 4.03,
+        "book1" :  [ { "Title" : "Mindset", "Author" : "Carol Dweck", "Year" : 1967, "Goodreadrating" : 4.03, "Publisher" : "Random House" } ]
     },
     {
-    "Title": "Switch",
-    "Author": "Dan Harris",
-    "Year Published": 2014,
-    "Publisher": "It Books",
-    "Goodreadrating": 3.93,
-    }	
-]} 
+        "book1" :  [ { "Title" : "Switch", "Author" : "Dan Harris", "Year" : 2014, "Goodreadrating" : 3.93, "Publisher" : "It Books" } ]
+    }
+    
+]

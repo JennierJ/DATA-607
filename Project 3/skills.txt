@@ -1,27 +1,24 @@
-Python	
-programming	
-analytics	
-mathematic	
-machine learning	
-programming	
-team	
+Python programming
+analytics
+mathematic
+machine learning
+team
 Cooperation
-statistics	
-mathematic 
-SQL	
-communication	
-big data	
-design	
-visualization	
-Hadoop	
-Java	
-research	
-creative	
-math
-mathematic 
-MATLAB	
+statistics
+mathematic
+SQL
+communication
+big data
+design
+visualization
+Hadoop
+Java
+research
+creative
+mathematic
+MATLAB
 predictive analytics
-SAS	
-R	
-Modelling	
+SAS
+R
+Modelling
 C++

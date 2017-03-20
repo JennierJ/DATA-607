@@ -1,0 +1,4 @@
+"Python"	"programming"	"analytics"	"mathematic"	"machine learning"	"programming""programming"	"programming""team"	"Cooperation"
+"statistics"	"mathematic" "SQL"	"programming" "communication"	"Cooperation" "big data"	"programming" "design"	"visualization"	
+"Hadoop"	"programming" "Java"	"programming" "research"	"Cooperation" "creative"	"Cooperation" "math"	"mathematic" "MATLAB"	"programming"
+"predictive analytics" "programming" "SAS"	"programming" "R"	"programming" "Modelling"	"visualization" "C++"	"programming"

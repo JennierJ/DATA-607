@@ -1,0 +1,117 @@
+install.packages("tm")
+install.packages("SnowballC")
+install.packages("RTextTools")
+
+library(RCurl)
+library(XML)
+library(stringr)
+library(tm)
+
+library(SnowballC)
+library(RTextTools)
+
+# Download the ham and spam files in the following path
+
+ham_path <- "C:/Users/jenny_000/Desktop/MSDA R/DATA-607/Project 4/easy_ham/"
+
+spam_path <- "C:/Users/jenny_000/Desktop/MSDA R/DATA-607/Project 4/spam_2/"
+
+# Load the ham and spam emails and create corpus
+
+ham_corpus <- Corpus(DirSource(ham_path), readerControl=list(reader=readPlain))
+length(ham_corpus)
+ham_corpus
+
+
+spam_corpus <- Corpus(DirSource(spam_path), readerControl = list(reader=readPlain))
+length(spam_corpus)
+spam_corpus
+
+# Add meta information
+meta(ham_corpus, "Type") <- "ham"
+meta(spam_corpus, "Type") <- "spam"
+
+# Data Cleansing
+ham_corpus <- tm_map(ham_corpus, removeNumbers)
+ham_corpus <-  tm_map(ham_corpus, str_replace_all, pattern = "[[:punct:]]", replacement = " ")
+ham_corpus <-  tm_map(ham_corpus, removeWords, words = stopwords("en"))
+ham_corpus <- tm_map(ham_corpus, tolower)
+ham_corpus
+
+spam_corpus <- tm_map(spam_corpus, removeNumbers)
+spam_corpus <-  tm_map(spam_corpus, str_replace_all, pattern = "[[:punct:]]", replacement = " ")
+spam_corpus <-  tm_map(spam_corpus, removeWords, words = stopwords("en"))
+spam_corpus <- tm_map(spam_corpus, tolower)
+spam_corpus
+
+
+# Building term-document matrix and remove sparse terms
+ham_tdm <- TermDocumentMatrix(ham_corpus)
+ham_tdm <- removeSparseTerms(ham_tdm, 1-(10/length(ham_corpus))) 
+
+spam_tdm <- TermDocumentMatrix(spam_corpus)
+spam_tdm <- removeSparseTerms(spam_tdm, 1-(10/length(spam_corpus))) 
+
+
+# Combine two TermDocumentMatrix using concatenation
+total_tdm <- c(ham_tdm, spam_tdm)
+total_tdm
+
+total_corpus <- c(ham_corpus, spam_corpus)
+attributes(total_corpus) <- c(attributes(ham_corpus), attributes(spam_corpus))
+length(total_corpus)
+
+# Training 
+label_ham <- as.factor(unlist(meta(ham_corpus, "Type")[,1]))
+class(label_ham)
+length(label_ham)
+
+
+label_spam <- as.factor(unlist(meta(spam_corpus, "Type")[,1]))
+class(label_spam)
+length(label_spam)
+
+
+labels <- as.factor(c(label_ham, label_spam))
+length(labels)
+
+
+
+N <- length(labels)
+container <- create_container(
+  total_tdm,
+  labels = labels,
+  trainSize = 1:2000,
+  testSize = 2001:N,
+  virgin = FALSE
+)
+
+svm_model <- train_model(container, "SVM")
+tree_model <- train_model(container, "TREE")
+maxent_model <- train_model(container, "MAXENT")
+
+svm_out <- classify_model(container, svm_model)
+tree_out <- classify_model(container, tree_model)
+maxent_out <- classify_model(container, maxent_model)
+
+head(svm_out)
+head(tree_out)
+head(maxent_out) 
+
+labels_out <- data.frame(
+  correct_label = labels[2001:N],
+  svm = as.character(svm_out[,1]),
+  tree = as.character(tree_out[,1]),
+  stingsAsFactors = F)
+
+#SVM performance
+table(labels_out[,1] == labels_out[,2])
+prop.table(table(labels_out[,1] == labels_out[,2]))
+
+#Random forest performance
+table(labels_out[,1] == labels_out[,3])
+prop.table(table(labels_out[,1] == labels_out[,3]))
+
+#Maximum entropy performance
+table(labels_out[,1] == labels_out[,4])
+prop.table(table(labels_out[,1] == labels_out[,4]))

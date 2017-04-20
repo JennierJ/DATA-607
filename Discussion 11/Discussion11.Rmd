@@ -1,0 +1,30 @@
+---
+title: "DATA 607 - Discussion 11"
+author: "Jenny"
+date: "April 20, 2017"
+output: html_document
+---
+
+
+
+## Netflix Scenario Design analysis
+
+1) Who are your target users?
+
+Netflix's target users are the people like watching shows and movies.
+
+2) What are their key goals?
+
+The goals of our users are to find the shows and movies they like.
+
+3) How can you help them accomplish those goals? 
+
+We can help users accomplish this goal by analyzing the browsing and watching history to recommend shows to watch.
+
+## Reverse engineer
+
+I have found a very good article talking about netflix recommender system "http://delivery.acm.org/10.1145/2850000/2843948/a13-gomez-uribe.pdf?ip=104.162.29.216&id=2843948&acc=OA&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35%2EE5B8A747884E71D5&CFID=926401650&CFTOKEN=39850565&__acm__=1492725389_f94fc5222e417790302bc634a41889d5"
+
+## Recommendations
+
+To improve the accuracy of recommendation system of Netflix, I think it will be a good idea to also recommend the shows by analyzing the locations, age, sex and edcuation etc. (to include more factors) 

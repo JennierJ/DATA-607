@@ -1,0 +1,34 @@
+---
+title: "Week 13 Assignment"
+author: "Jenny"
+date: "April 30, 2017"
+output: html_document
+---
+
+## Introduction
+
+This assignment requires me to take information from a relational database and migrate it to a NoSQL database of your own choosing. I choose to read flight cvs file using Neo4j and create the relationship. 
+
+### Create the nodes
+
+```{r eval = FALSE}
+load csv with headers from "file:///Week13/neo4j-airport-csv-raw.csv" as airports create (a1:Airport {code: airports.label, city: airports.city, state: airports.state})
+
+load csv with headers from "file:///Week13/neo4j-flight-csv-raw.csv" as flights create (n:Flight {number: flights.flight, airline: flights.airline, capacity: flights.capacity}
+```
+
+### Create the relationship
+```{r eval = FALSE}
+load csv with headers from "file:///Week13/neo4j-flight-csv-raw.csv" as flights
+match (a: Flight {number: flights.flight}),(b:Airport {code: flights.arrive}) create (a) -[r:Arrives {landing:
+flights.landing}]-> (b)
+
+load csv with headers from "file:///Week13/neo4j-flight-csv-raw.csv" as flights
+match (a: Flight {number: flights.flight}),(b:Airport {code: flights.depart}) create (a) -[r:Departs {takeoff:
+flights.takeoff}]-> (b)
+```
+
+### Qurey the database
+```{r eval = FALSE}
+match (n) return (n)
+```
